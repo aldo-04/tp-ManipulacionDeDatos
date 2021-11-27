@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.title %> </title>
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+<body>
+    <%- include("./partials/header") %>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <% if (movie != null) { %>
+        <h1><%= movie.id %> </h1>
+        <h1><%= movie.title %> </h1>    
+        <br>
+        <p>RATING: <%= movie.rating %> </p>
+        <p>AWARDS: <%= movie.awards %> </p>
+        <p>LENGTH: <%= movie.length + ' min'%> </p>
+        <p>RELEASE DATE: <%= movie.release_date %> </p>
+        <br>
+        <a href="/movies/edit/<%= movie.id %>">
+            <input type="button" value="Editar pelicula">
+        </a>
+        <br>
+        <a href="/movies/delete/<%= movie.id %>">
+            <input type="button" value="Borrar pelicula">
+        </a>
+        <input type="button">
+    <% } else { %>
+     <h1>La pelicula ya no existe :(</h1>
+    <% } %>
+</body>
+</html>
